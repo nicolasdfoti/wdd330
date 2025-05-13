@@ -23,3 +23,15 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+// reusable function to render a list of items using a template function.
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+  console.log(list);
+
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+
+  const htmlList = list.map(templateFn).join('');
+  parentElement.insertAdjacentHTML(position, htmlList);
+}
