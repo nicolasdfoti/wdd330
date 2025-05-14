@@ -26,12 +26,11 @@ export function setClick(selector, callback) {
 
 // reusable function to render a list of items using a template function.
 export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
-  console.log(list);
-
+  
   if (clear) {
     parentElement.innerHTML = "";
   }
-
-  const htmlList = list.map(templateFn).join('');
-  parentElement.insertAdjacentHTML(position, htmlList);
+  
+  const htmlStrings = list.map(productCardTemplate);
+  this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(''));
 }

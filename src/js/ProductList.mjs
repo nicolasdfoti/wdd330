@@ -14,6 +14,7 @@ function productCardTemplate(product) {
 }
 
 export default class ProductList {
+
     constructor(category, dataSource, listElement) {
         this.category = category;
         this.dataSource = dataSource;
@@ -25,13 +26,7 @@ export default class ProductList {
         this.renderList(list);
     }
 
-    // renderList(list) {
-    //     console.log(list);
-    //     const htmlList = list.map(productCardTemplate).join('');
-    //     this.listElement.innerHTML = htmlList;
-    // }
-
-    renderList(list) {
+    renderList() {
         renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
     }
 }
