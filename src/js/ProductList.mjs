@@ -1,32 +1,37 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-
-    return `
-        <li class="product-card">
-            <h2 class="card-name">${product.NameWithoutBrand}</h2>
-            <p class="card-description">${product.DescriptionHtmlSimple}</p>
-            <img src="${product.Image}" alt="${product.NameWithoutBrand}" />
-            <p class="product-card__price">$${product.FinalPrice}</p>
-        </li>
-    `;    
-
+  return `
+    <li class="product-card">
+      <a href="product_pages/?products=${product.Id}">
+        <img src="${product.Image}" alt="${product.Name}">
+        <h2>${product.Brand.Name}</h2>
+        <h3>${product.NameWithoutBrand}</h3>
+        <p class="product-card__price">$${product.FinalPrice}</p>
+      </a>
+    </li>
+    `;
 }
 
 export default class ProductList {
+  constructor(category, dataSource, listElement) {
+    this.category = category;
+    this.dataSource = dataSource;
+    this.listElement = listElement;
+  }
 
-    constructor(category, dataSource, listElement) {
-        this.category = category;
-        this.dataSource = dataSource;
-        this.listElement = listElement;
-    }
+  async init() {
+    const list = await this.dataSource.getData();
+    this.renderList(list);
+  }
 
-    async init() {
-        const list = await this.dataSource.getData();
-        this.renderList(list);
-    }
+  renderList(list) {
+    // const htmlStrings = list.map(productCardTemplate);
+    // this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
 
-    renderList() {
-        renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
-    }
+    // apply use new utility function instead of the commented code above
+    renderListWithTemplate(productCardTemplate, this.listElement, list);
+
+  }
+
 }

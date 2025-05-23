@@ -39,6 +39,38 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
     parentElement.innerHTML = "";
   }
   
-  const htmlStrings = list.map(productCardTemplate);
+  const htmlStrings = list.map(templateFn);
   this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(''));
+}
+
+// reusable function that renders info with a template
+export function renderWithTemplate(template, parentElement, data, callback) {
+  
+  parentElement.innerHTML = template;
+
+  if (callback) {
+    callback(data);
+  }
+}
+
+// function that fetches the HTML file and turns it into a string
+export async function loadTemplate(path) {
+
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+// function that loads the header and footer
+export async function loadHeaderFooter() {
+
+  // Header
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const headerElement = document.querySelector("#main-header");
+  renderWithTemplate(headerTemplate, headerElement);
+
+  //Footer
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+  const footerElement = document.querySelector("#main-footer");
+  renderWithTemplate(footerTemplate, footerElement);
 }

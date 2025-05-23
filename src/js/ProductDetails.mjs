@@ -1,3 +1,5 @@
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -19,12 +21,12 @@ export default class ProductDetails {
     this.renderProductDetails();
     document
         .getElementById('addToCart')
-        .addEventListener('click', this.addToCart.bind(this));
+        .addEventListener('click', this.addProductToCart.bind(this));
   }
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(product);
+    cartItems.push(this.product);
     setLocalStorage("so-cart", cartItems);
   }
 
