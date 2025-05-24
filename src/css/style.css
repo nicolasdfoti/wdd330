@@ -156,6 +156,35 @@ button {
   padding: 1rem;
 }
 
+.product-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-grid li {
+  list-style: none;
+  text-align: center;
+}
+
+.product-grid a {
+  color: black;
+  text-decoration: none;
+}
+
+.product-grid h2 {
+  padding: 3px;
+}
+
+.product-grid a h2:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.product-grid img {
+  width: 100px;
+  justify-self: center;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
@@ -205,11 +234,12 @@ button {
 
 /* Start cart list card styles */
 .cart-card {
-  display: grid;
-  grid-template-columns: 25% auto 15%;
-  font-size: var(--small-font);
-  /* max-height: 120px; */
+  display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  font-size: var(--small-font);
+  padding: 0.5rem 1rem;
 }
 
 .cart-card__image {
@@ -219,11 +249,13 @@ button {
 
 .cart-card p {
   margin-top: 0;
+  text-align: right;
 }
 
 .cart-card .card__name {
   grid-row: 1;
   grid-column: 2;
+  text-align: right;
 }
 
 .cart-card__color {

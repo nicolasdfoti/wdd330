@@ -3,8 +3,8 @@ import { renderListWithTemplate, getLocalStorage } from "./utils.mjs";
 function cartItemTemplate(item) {
   return `
     <li class="cart-card divider">
-      <a href="#" class="cart-card__image">
-        <img src="${item.Image}" alt="${item.NameWithoutBrand}" />
+      <a href="" class="cart-card__image">
+        <img src="${item.Images.PrimaryMedium}" alt="${item.NameWithoutBrand}" />
       </a>
       <div class="cart-card__info">
         <h2 class="card__name">${item.NameWithoutBrand}</h2>
