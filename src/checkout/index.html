@@ -1,27 +1,72 @@
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Outside | Checkout</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/checkout.js" type="module"></script>
+</head>
 
-    <title>Sleep Outside | Checkout</title>
+<body>
+  <header class="divider" id="main-header"></header>
 
-    <link rel="stylesheet" href="css/style.css" />
+  <h2>Review & Place your Order</h2>
 
-    <script src="../js/checkout.js" type="module"></script>
-  </head>
+  <main class="divider checkout">
 
-  <body>
-    <header class="divider" id="main-header"></header>
+    <section>
 
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
-      </section>
-    </main>
+      <form name="checkoutForm" id="checkoutForm">
+        <input type="hidden" name="orderDate" id="orderDate">
 
-    <footer id="main-footer"></footer>
-  </body>
+        <legend>Contact Information</legend>
+
+        <fieldset>
+          <label for="fname">Enter your first name: <input type="text" name="fname" id="fname" required></label>
+          <label for="lname">Enter your last name: <input type="text" name="lname" id="lname" required></label>
+        </fieldset>
+
+        <fieldset>
+          <label for="street">Enter your street address: <input type="text" name="street" id="street" required></label>
+          <label for="city">Enter your city: <input type="text" name="city" id="city" required></label>
+          <label for="state">Enter your state: <input type="text" name="state" id="state" required></label>
+          <label for="zip">Enter your zip code: <input type="text" name="zip" id="zip" required></label>
+        </fieldset>
+
+        <legend>Payment Information</legend>
+
+        <fieldset>
+          <label for="cardNumber">Enter your credit card number: <input type="text" name="cardNumber" id="cardNumber" required></label>
+          <label for="expiration">Enter your expiration date: <input type="text" name="expiration" id="expiration" required></label>
+          <label for="code">Enter your security code: <input type="text" name="code" id="code" required></label>
+        </fieldset>
+
+        <button type="submit" id="checkoutSubmit">Buy with quality!</button>
+      </form>
+
+    </section>
+
+    <section class="summary">
+
+      <p>Items:</p>
+      <p id="number_items"></p>
+      <p>Subtotal: </p>
+      <p id="orderSubtotal"></p>
+      <p>Tax: </p>
+      <p id="taxes"></p>
+      <p>Shipping estimate:</p>
+      <p id="shipping"></p>
+      <p>Total: </p>
+      <p id="orderTotal"></p>
+
+    </section>
+
+  </main>
+
+  <footer id="main-footer"></footer>
+</body>
+
 </html>
