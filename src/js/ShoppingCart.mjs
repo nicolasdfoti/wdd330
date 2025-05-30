@@ -23,7 +23,23 @@ export default class ShoppingCart {
   }
 
   init() {
-    const cartItems = getLocalStorage(this.storageKey) || [];
-    renderListWithTemplate(cartItemTemplate, this.listElement, cartItems);
+    this.cartItems = getLocalStorage(this.storageKey) || [];
+
+    if (this.cartItems.length === 0) {
+      this.listElement.innerHTML = "<p>Your cart is empty!</p>";
+      document.querySelector("#cart-total").style.display = "none";
+      return;
+    }
+
+    else {
+      renderListWithTemplate(cartItemTemplate, this.listElement, this.cartItems);
+    }
+  }
+
+  calculateTotal() {
+    return this.cartItems.reduce((total, item) => {
+      const quantity = item.Quantity ?? 1;
+      return total + item.FinalPrice * quantity;
+    }, 0);
   }
 }

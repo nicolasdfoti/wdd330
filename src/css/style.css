@@ -152,8 +152,11 @@ button {
 }
 
 .products {
-  margin-top: 2rem;
-  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.products h2 {
+  margin-bottom: 1rem;
 }
 
 .product-grid {
@@ -195,6 +198,16 @@ button {
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
+}
+
+.total {
+  width: 20%;
+  padding: 10px;
+  justify-self: right;
+  margin: 1rem 0 1rem 0;
+  border: 2px solid #f0a868;
+  font-weight: bolder;
+  text-align: center;
 }
 
 /* Styles for product lists */
