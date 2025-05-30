@@ -20,6 +20,7 @@
     <section>
 
       <form name="checkoutForm" id="checkoutForm">
+        <input type="hidden" name="orderDate" id="orderDate">
 
         <legend>Contact Information</legend>
 
@@ -32,18 +33,18 @@
           <label for="street">Enter your street address: <input type="text" name="street" id="street" required></label>
           <label for="city">Enter your city: <input type="text" name="city" id="city" required></label>
           <label for="state">Enter your state: <input type="text" name="state" id="state" required></label>
-          <label for="zip">Enter your zip code: <input type="number" name="zip" id="zip" required></label>
+          <label for="zip">Enter your zip code: <input type="text" name="zip" id="zip" required></label>
         </fieldset>
 
         <legend>Payment Information</legend>
 
         <fieldset>
-          <label for="credit-card">Enter your credit card number: <input type="number" name="credit-card" id="credit-card" required></label>
-          <label for="expiration">Enter your expiration date: <input type="date" name="expiration" id="expiration" required></label>
-          <label for="security">Enter your security code: <input type="number" name="security" id="security" required></label>
+          <label for="cardNumber">Enter your credit card number: <input type="text" name="cardNumber" id="cardNumber" required></label>
+          <label for="expiration">Enter your expiration date: <input type="text" name="expiration" id="expiration" required></label>
+          <label for="code">Enter your security code: <input type="text" name="code" id="code" required></label>
         </fieldset>
 
-        <button type="submit">Buy with quality!</button>
+        <button type="submit" id="checkoutSubmit">Buy with quality!</button>
       </form>
 
     </section>
